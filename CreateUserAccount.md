@@ -17,11 +17,11 @@
     - Description: whenever you will login and you must create a new password at next sign-in if you check password reset. 
         Otherwise , you don't need to reset your password because it's unchecked
   - Create Group:
-      - Name: AdminGroup
+      - Name: AdminDevGroup
       - Policy: AdministratorAccess 
         - Description: This Policy will provide significate Access for this group which can assign for any user
 ## Step-03: Verifiy AWS Console
-  - Console URL: https://own-dark-practice.signin.aws.amazon.com/console
+  - Console URL: https://own-dark-dev.signin.aws.amazon.com/console
     -  Name: admin-Development
     - pasword: ******
 
