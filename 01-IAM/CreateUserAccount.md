@@ -2,12 +2,12 @@
 
 ## Step-01: Account Alias
   - Click on the Edit
-    - Preferred alias : own-dark-practice 
+    - Preferred alias : own-dark-dev 
     - Description:  Alias need to be globally unique and we can generate user friendly name which would be the url for sigin in 
 
 ## Step-02: Create User 
   - Click on the Users-> Add Users
-  - Name: Admin
+  - Name: admin-development
   - Select AWS access type:
       - Programmatic access : YES (Checked) 
           - Description: This Enables an access key ID and secret access key for the AWS API, CLI, SDK, and other development tools.
@@ -17,22 +17,22 @@
     - Description: whenever you will login and you must create a new password at next sign-in if you check password reset. 
         Otherwise , you don't need to reset your password because it's unchecked
   - Create Group:
-      - Name: AdminGroup
+      - Name: AdminDevGroup
       - Policy: AdministratorAccess 
         - Description: This Policy will provide significate Access for this group which can assign for any user
 ## Step-03: Verifiy AWS Console
-  - Console URL: https://own-dark-practice.signin.aws.amazon.com/console
-    -  Name: Admin
+  - Console URL: https://own-dark-dev.signin.aws.amazon.com/console
+    -  Name: admin-Development
     - pasword: ******
 
 ## Step-04: Configure With AWS CLI
-  - aws configure --profile Admin
+  - aws configure --profile admin-development
   - AWS Access Key ID [None]: YOUR ACCESS KEYID
   - AWS Secret Access Key [None]: YOUR SECRET ACCESS KEY
   - Default region name [None]:
   - Default output format [None]:
 
 ## Step-04: Verify using AWS CLI
-  - aws s3 ls --profile admin
+  - aws s3 ls --profile admin-development
 
 
