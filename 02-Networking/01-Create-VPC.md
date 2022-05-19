@@ -1,4 +1,4 @@
-# Create VPC using AWS Management Console
+# Create VPC PUBLIC AND PRIVATE VPC USING AWS CONSOLE MANAGEMENT
 ## Step-01: Introduction
 - Create Demo VPC
 - Create Internet Gateway and Associate to VPC
