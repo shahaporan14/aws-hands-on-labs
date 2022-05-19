@@ -10,73 +10,73 @@
 - Verify 
 
 ## Step-02: Create VPC
-- **Name:** demo-vpc
+- **Name:** DEMO-VPC
 - **IPv4 CIDR Block:** 10.200.0.0/16
 - Rest all defaults
 - Click on **Create VPC**
 
 ## Step-03: Create Internet Gateway and Associate it to VPC
-- **Name Tag:** demo-igw
+- **Name Tag:** DEMO-IGW
 - Click on **Create Internet Gateway**
-- Click on Actions -> Attach to VPC -> demo-vpc
+- Click on Actions -> Attach to VPC -> DEMO-VPC
 
 ## Step-04: Create Subnets
 ### Step-04-01-01: Public Subnet
-- **VPC ID:** demo-vpc
-- **Subnet Name::** demo-public-subnet-1
+- **VPC ID:** DEMO-VPC
+- **Subnet Name::**DEMO-PUBLIC-SUBNET-1
 - **Availability zone:** us-east-1a
 - **IPv4 CIDR Block:** 10.200.0.0/24
 
 ### Step-04-01-02: Create Public Route Table
-- **Name tag:** demo-public-rt
-- **vpc:** demo-vpc
+- **Name tag:** DEMO-PUBLIC-RT
+- **vpc:** DEMO-VPC
 - Click on **Create**
 
 ### Step-04-01-03: Associate Subnet with Public RT
 - Click on **Edit Subnet Associations**
-- Select on **demo-public-subnet-1**
+- Select on **DEMO-PUBLIC-SUBNET-1**
 - Click on **Save associations**
 
 ### Step-04-01-04: Create Public Route in Route Table
 - Click on **Add Route**
 - **Destination:** 0.0.0.0/0
-- **Target:** my-igw
+- **Target:** DEMO-IGW
 - Click on **Save Route**
 
 
 ### Step-04-02-01: Private Subnet
-- **Subnet Name::** demo-private-subnet-1
+- **Subnet Name::** DEMO-PRIVATE-SUBNET-1
 - **Availability zone:** us-east-1b
 - **IPv4 CIDR Block:** 10.200.1.0/24
 - Click on **Create Subnet**
 
 ## Step-04-02-02:  Create NAT Gateway
-- **Name:** demo-nat-gateway
-- **Subnet:** demo-public-subnet-1
+- **Name:** DEMO-NATGATWAY
+- **Subnet:**DEMO-PUBLIC-SUBNET-1
 - **Allocate Elastic Ip:** click on that
 - Click on **Create NAT Gateway**
 
 ### Step-04-02-03: Create Private Route Table
-- **Name tag:** demo-private-rt
-- **vpc:** demo-vpc
+- **Name tag:** DEMO-PRIVATE-RT
+- **vpc:** DEMO-VPC
 - Click on **Create**
 
 ### Step-04-02-04:  Associate Subnet with Private RT
 - Click on **Edit Subnet Associations**
-- Select on **demo-private-subnet-1**
+- Select on **DEMO-PRIVATE-SUBNET-1**
 - Click on **Save associations**
 
 ### Step-04-02-05: Create Private Route Route Table
 - Click on **Add Route**
 - **Destination:** 0.0.0.0/0
-- **Target:** demo-nat-gateway
+- **Target:** DEMO-NATGATWAY
 - Click on **Save Route**
 
 ## Step-05: Create Security Group for Public Ec2 Intance
 - Click on **Security**
-- **Name:** demo-public-sg
-- **Description:** demo-public-sg
-- **VPC:** demo-vpc
+- **Name:**DEMO-PUBLIC-SG
+- **Description:**DEMO-PUBLIC-SG
+- **VPC:** DEMO-VPC
 - **Inbound security:**
     - TYPE: SSH 
     - PORT :  22 
@@ -84,14 +84,14 @@
 - Click on **Create security group**
 
 ## Step-06: Create Public EC2 
-  - Name: public-instance
+  - Name: PUBLIC-EC2-A
   - Number of instances: 1
   - AMI: Linux (free tier)
   - Instance type: t2.micro
   - KeyName: demo.pem
   - Network settings: 
-    - VPC: demo-vpc
-    - Subnet: demo-public-subnet-1
+    - VPC: DEMO-VPC
+    - Subnet:DEMO-PUBLIC-SUBNET-1
     - Auto-assign: Enable
     - Security: public-demo-sg
   - Configure storage: Default
@@ -101,7 +101,7 @@
 - Click on **Security**
 - **Name:** demo-private-sg
 - **Description:** demo-private-sg
-- **VPC:** demo-vpc
+- **VPC:** DEMO-VPC
 - **Inbound security:**
     - TYPE: SSH && ALL ICMP
     - PORT :  22  & 0-65535
@@ -109,14 +109,14 @@
 - Click on **Create security group**
 
 ## Step-08: Create Private EC2 
-  - Name: public-instance
+  - Name: PRIVATE-EC2-B
   - Number of instances: 1
   - AMI: Linux (free tier)
   - Instance type: t2.micro
   - KeyName: demo.pem
   - Network settings: 
-    - VPC: demo-vpc
-    - Subnet: demo-private-subnet-1
+    - VPC: DEMO-VPC
+    - Subnet: DEMO-PRIVATE-SUBNET-1
     - Auto-assign: disabled
     - Security: private-demo-sg
   - Configure storage: Default
@@ -141,8 +141,8 @@
   ```
 ## Step-11: Delete everything
 - Delete `Instance`
-- Delete `demo-nat-gateway`
+- Delete `DEMO-NATGATWAY`
 - Wait till NAT Gateway is deleted
-- Delete `demo-vpc`
+- Delete `DEMO-VPC`
 
 
